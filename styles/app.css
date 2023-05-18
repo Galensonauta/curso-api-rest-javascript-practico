@@ -1,0 +1,529 @@
+/* General */
+* { box-sizing: border-box;
+  
+}
+
+:root {
+  --azul-claro-1: #4f2cda;
+  --azul: #2600ff;
+  --turquesa: #14e8f0;
+  --verde-claro-1: #1ce095;
+  --celeste: #127bdd;
+  --granate: #4c065e;
+  --granate3: #210a27;
+  --granate2: #850dbc;
+  --viole3: #40096e;
+  --viole2: #23083b;
+
+
+  --azul-oscuro: #050458;
+  --negro: #000000;
+  --gris-claro: #4442429e;
+  --gris-oscuro: #282727c8;
+
+  --yellow: #d0eb3b;
+  --green: #31db1b;
+  --aqua: #B7EAC5;
+  --lightBlue: #A2EEE5;
+  --rosado: #ea948e;
+  --red: #f70b0b;
+
+  --font-family-titles: 'Dosis', sans-serif;
+  --font-family-text: 'Red Hat Display', sans-serif;
+  --font-weight-title1: 800;
+  --font-weight-title2: 700;
+  --font-weight-text1: 400;
+  --font-weight-text2: 500;
+}
+
+html {
+  background-color: var(--granate);
+  overflow-y: scroll;
+  }
+
+body {
+  background-color: var(--negro);  
+}
+p{
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #000000;
+
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-size: 24px;
+  color: var(--granate);
+  font-family: var(--font-family-titles);
+  font-weight: var(--font-weight-title1);
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 18px;
+  color: var(--azul);
+  font-weight: var(--font-weight-title2);
+}
+
+h3 {
+  color: var(--granate2);
+  font-weight: var(--font-weight-text1);
+  font-size: 27px;
+  border-radius: 10%;
+}
+
+input {
+  background-color: var(--gris-oscuro);
+  color: var(--negro);
+  border: none;
+  font-size: 18px;
+  padding-left: 16px;
+  font-weight:bold;
+}
+
+input::placeholder {
+  color: var(--gris-claro);
+  font-family: var(--font-family-text);
+}
+
+button {
+  background-color: var(--granate);
+  border: none;
+  color: var(--gris-claro);
+  font-weight: var(--font-weight-text2);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+/* Shared */
+.header-container, .trendingPreview-header, .categoriesPreview-container .liked-header{
+  padding: 0 24px;
+}
+.liked-container{
+  position: relative;
+}
+
+.trendingPreview-container, .categoriesPreview-container  {
+  margin-top: 15%;
+  position: relative;
+}
+
+.trendingPreview-header {
+  margin-top: 50%;
+}
+.afiche {
+  position: absolute;
+  margin: -400px 0px 0px 70px;
+}
+.casting-img{
+  height: 150px;
+  width: auto;
+  
+}
+.cas{
+  position: absolute;
+    margin: 428px 0px;
+}
+.video{
+  position: absolute;
+  margin: -115px 50px 0 500px;
+  border-radius: 8px;
+  border-color: var(--granate);
+}
+.video-container{
+  width: 100%;
+  height: 100%;
+  padding-bottom: 56.25%; /* Proporción de aspecto 16:9 */
+}
+.movie-bo {
+  position: relative;
+  top: -100px;
+  left: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  padding: 0;
+  margin: 0;
+}
+.movie-bo::before {
+  content: '🤍';
+  font-size: 20px;
+}
+.movie-bo--liked {
+  background-color: var(--purple-light-2);
+  box-shadow: 0px 0px 10px 2px var(--purple-dark-1);
+}
+.movie-bo--liked::before {
+  content: '💜';
+}
+
+.movie-container {
+  cursor: pointer;
+}
+.movie-container--loading{
+  background: grey;
+  height: 225px;
+  width: 150px;
+  min-height: 225px;
+  max-height: 225px;
+  min-width: 150px;
+  max-width: 150px;
+  margin-bottom: 16px;
+  animation: loading-carga infinite 1.5s;
+}
+.movie-container--loading:nth-child(2){
+  animation-delay: .2s;
+}
+
+.movie-container--loading:nth-child(3){
+  animation-delay: .4s;
+}
+.category-container--loading{
+  background: grey;
+  height: 25px;
+  width: 150px;
+  min-height: 225px;
+  max-height: 225px;
+  min-width: 150px;
+  max-width: 150px;
+animation: loading-carga infinite 1.5s;
+}
+
+.movieDetail-description {
+  
+  /*margin: 165px -200px 24px 0;
+  position: relative;
+  float: right;
+  background-color: #000000;
+  word-wrap: break-word;*/
+  margin: -300px 0px 150px 500px;
+  position: absolute;
+  display: flex;
+  float: right;
+  justify-content: flex-end;
+  word-wrap: break-word;
+}
+.movie-img{
+border-radius: 8px;
+min-height: 175px;}
+.movie-img:hover {
+  transform: scale(1.2);
+  opacity: 75%;
+  transition-duration: .5s;
+}
+
+/* Header */
+.header-container {
+  padding-top: 30px; 
+  background-color: var(--granate3);
+}
+.header-searchForm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  margin-top: -75px;
+  position: absolute;
+}
+
+.header-searchForm input {
+  height: 50px;
+    width: 90%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.header-searchForm button {
+  width: 50px;
+    height: 50px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.categoriesPreview-list {
+  display: flex;
+    justify-content: space-between;
+    position: absolute;
+    flex-wrap: wrap;
+    margin: -183px -3px;
+    width: 100%;
+}
+.categories-list {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  flex-wrap: wrap;
+  margin: -150px 0px 0px 500px;
+}
+/* Al ingresar a la peli*/
+.header-container--long {
+     
+ /*background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), 
+  url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);*/
+ width: 100%;
+    height: 100vh;
+    position: fixed;
+    margin: -425px -3px;
+ 
+}
+
+.header-container--categoryView {
+  background: linear-gradient(180deg, rgba(238, 204, 117, 0.5) 0%, rgba(238, 204, 117, 0) 72.92%);
+}
+
+.header-title {
+  margin-bottom: 16px;
+}
+
+.header-arrow {
+  font-weight: var(--font-weight-text2);
+  font-size: 36px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+.header-arrow--white {
+  color: var(--yellow);
+}
+
+
+
+
+/* Trending */
+.trendingPreview-header .liked-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.trendingPreview-title{
+  font-size: 18px;
+  background: #000000;
+  color: var(--azul);
+  font-weight: var(--font-weight-title2);
+  position: relative;
+  top: 60px;
+  cursor: pointer;
+}
+
+  .trendingPreview-arrow {
+    color: var(--granate);
+    font-weight: var(--font-weight-text2);
+    font-size: 36px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .liked-movieList{
+display: flex;
+margin: 15px;
+  }
+
+.trendingPreview-movieList {
+  padding-left: 24px;
+  position: relative;
+  margin-top: -35%;
+}
+
+.trendingPreview-movieList .movie-container {
+  display: inline;
+  margin-right: 8px;
+}
+
+.trendingPreview-movieList .movie-img .liked-movieList{
+  height: 300px;
+  width: 225px;
+  min-height: 175px;
+  
+}
+.movie-container {
+  height: 225px;
+  width: 150px;
+  min-height: 225px;
+  max-height: 225px;
+  
+  min-width: 150px;
+  max-width: 150px;
+}
+
+
+/* Categories */
+.category-container {
+  width: 11%;
+}
+
+.category-title {  
+  display: table-cell;
+  width: 25px;
+  height: 25px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+/*.category-title::before {
+  content: '••••';
+  color: transparent;
+  /* TODO: cambiar color por ID de la categoría 
+  background-color: var(--idColor);
+  border-radius: 8px;
+  margin-right: 8px;
+  width: 8px;
+  height: 8px;
+}
+#id28 { --idColor: var(--yellow); }
+#id12 { --idColor: var(--red); }
+#id16 { --idColor: var(--green); }
+#id35 { --idColor: var(--lightBlue); }
+#id80 { --idColor: var(--darkBlue); }
+#id99 { --idColor: var(--purple-dark-1); }
+#id18 { --idColor: var(--purple-medium-1); }
+#id10751 { --idColor: var(--yellow); }
+#id14 { --idColor: var(--red); }
+#id36 { --idColor: var(--green); }
+#id27 { --idColor: var(--lightBlue); }
+#id10402 { --idColor: var(--darkBlue); }
+#id9648 { --idColor: var(--purple-dark-1); }
+#id10749 { --idColor: var(--purple-medium-1); }
+#id878 { --idColor: var(--yellow); }
+#id10770 { --idColor: var(--red); }
+#id53 { --idColor: var(--green); }
+#id10752 { --idColor: var(--lightBlue); }
+#id37 { --idColor: var(--darkBlue); }*/
+
+
+/* Generic List (search, trending & category) */
+.genericList-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0px 80px;
+}
+.genericList-container .movie-container {
+ 
+display: inline-block;
+width: 10%;
+height: 15%;
+margin-bottom: 20px;
+margin-right: 50px;
+}
+
+.genericList-container .movie-img {
+  height: 225px;
+  width: 150px;
+  min-height: 175px;
+}
+
+
+
+/* Movie Detail */
+.movieDetail-container {
+  /*border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 100px;
+  margin-left: 684px;*/
+  position: relative;
+}
+
+.movieDetail-title {
+  background-color: var(--granate3);
+  position: absolute;
+  margin: -400px 500px;
+  position: absolute;
+  word-wrap: break-word;
+}
+
+.movieDetail-score {
+  background-color: var(--granate2);
+  position: absolute;
+    margin: -340px 500px;
+  font-weight: var(--font-weight-title2);
+}
+.movieDetail-score::before {
+  margin: 100px 0 24 0;
+  content: '★';
+  color: var(--yellow);
+  padding-right: 4px;
+  float: right;
+}
+
+
+.relatedMovies-container {
+  position: relative;
+  width: 100%;
+  height: 216px;
+  top: calc(100% - 216px - 24px);
+  margin: 428px 0px;
+  
+}
+
+.relatedMovies-title {
+  position: absolute;
+    margin: 200px 15px;
+}
+
+.relatedMovies-scrollContainer {
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: calc(100vw - 24px);
+    padding-bottom: 16px;
+    padding-top: 5px;
+    margin: 230px 0px 0px 53px;
+}
+.relatedMovies-scrollContainer .movie-container {
+  display: inline-block;
+  margin-right: 25px;
+  margin-top: 25px;
+}
+
+
+
+.relatedMovies-scrollContainer .movie-img {
+  width: 125px;
+  min-width: 125px;
+  max-width: 125px;
+  height: 187.5px;
+  min-height: 187.5px;
+  max-height: 187.5px;
+}
+  
+
+/* Footer */
+footer {
+  background-color: var(--purple-medium-3);
+  color: var(--purple-light-2);
+  text-align: center;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Navigation */
+.inactive {
+  display: none;
+}
+
+@keyframes loading-carga{
+  0%,100%{
+    opacity: 100%;
+  }
+  50%{
+    opacity: 0% 
+  }
+}
